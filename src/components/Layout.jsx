@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
       <header className="app-header">
         <div className="header-content">
           <Link to="/" className="logo">
-            <FiFileText /> Notes App
+            <FiFileText /> NoteSi
           </Link>
           <nav className="navigation">
             <Link to="/new" className="new-note-button">
