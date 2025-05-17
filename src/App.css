@@ -54,6 +54,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  /* Remove tap highlight on mobile */
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -61,6 +67,8 @@ body {
   line-height: 1.5;
   color: var(--text-color);
   background-color: var(--background-color);
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
 }
 
 /* Layout */
@@ -86,6 +94,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -108,6 +117,8 @@ body {
 .navigation {
   display: flex;
   align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* Theme Toggle */
@@ -190,6 +201,7 @@ body {
 .search-container {
   margin-bottom: 1.5rem;
   position: relative;
+  width: 100%;
 }
 
 /* Icon is now a React component */
@@ -407,6 +419,7 @@ body {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .add-tag-btn {
@@ -537,6 +550,123 @@ body {
 }
 
 /* Responsive adjustments */
+
+/* Very small devices - Small mobile phones */
+@media (max-width: 375px) {
+  .header-content {
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 5px;
+  }
+
+  .navigation {
+    margin-top: 5px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .search-shortcut {
+    display: none;
+  }
+}
+
+/* Extra small devices - Mobile phones (small) */
+@media (max-width: 480px) {
+  .app-header {
+    padding: 0.5rem;
+  }
+
+  .header-content {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .new-note-button {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .app-main {
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+
+  .search-input {
+    padding: 0.6rem 0.6rem 0.6rem 2.2rem;
+    font-size: 0.9rem;
+  }
+
+  .note-item {
+    padding: 1rem;
+  }
+
+  .note-tags {
+    flex-wrap: wrap;
+  }
+
+  .note-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.6rem;
+  }
+
+  .save-button {
+    padding: 0.6rem 1.2rem;
+    width: 100%;
+  }
+
+  .theme-toggle-button svg {
+    font-size: 1rem;
+  }
+
+  .search-shortcut {
+    display: none;
+  }
+}
+
+/* Small devices - Mobile phones (medium) */
+@media (min-width: 481px) and (max-width: 576px) {
+  .app-header {
+    padding: 0.7rem;
+  }
+
+  .header-content {
+    padding: 0 1.5rem;
+  }
+
+  .app-main {
+    padding: 0 1.5rem;
+    margin: 1.5rem auto;
+  }
+
+  .note-form {
+    padding: 1.5rem;
+  }
+
+  .save-button {
+    width: 100%;
+  }
+
+  .search-shortcut {
+    display: none;
+  }
+}
+
+/* Medium devices - Tablets */
 @media (max-width: 768px) {
   .notes-grid {
     grid-template-columns: 1fr;
@@ -549,5 +679,51 @@ body {
   .active-tag {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .navigation {
+    gap: 0.5rem;
+  }
+
+  .search-shortcut {
+    display: none;
+  }
+}
+
+/* Large devices - Small laptops and desktops */
+@media (min-width: 769px) and (max-width: 992px) {
+  .notes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .search-shortcut {
+    display: none;
+  }
+}
+
+/* Extra large devices - Large desktops */
+@media (min-width: 1200px) {
+  .app-main {
+    max-width: 1140px;
+  }
+
+  .notes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
+/* Extra extra large devices - Very large screens */
+@media (min-width: 1400px) {
+  .app-main {
+    max-width: 1320px;
+  }
+
+  .notes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+
+  .note-form {
+    max-width: 800px;
+    margin: 0 auto;
   }
 }
