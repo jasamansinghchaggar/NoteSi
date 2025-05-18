@@ -2,7 +2,7 @@ import { useState, Fragment, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NoteItem from './NoteItem';
 import useFilteredNotes from '../hooks/useFilteredNotes';
-import { FiSearch, FiX } from 'react-icons/fi';
+import { FiSearch, FiX, FiCommand } from 'react-icons/fi';
 import { getTagColor } from '../utils/colorUtils';
 
 const NoteList = ({ notes = [], tag = null, onDeleteNote, onEditNote }) => {
@@ -56,7 +56,7 @@ const NoteList = ({ notes = [], tag = null, onDeleteNote, onEditNote }) => {
             ref={searchInputRef}
           />
           <div className="search-shortcut">
-            <kbd>{isMac ? '⌘' : 'Ctrl'}+K</kbd>
+            <kbd>{isMac ? <FiCommand /> : 'Ctrl'}+K</kbd>
           </div>
         </div>
         

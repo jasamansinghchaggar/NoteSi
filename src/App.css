@@ -250,7 +250,8 @@ body {
   box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
   border-radius: 4px;
   color: var(--light-text);
-  display: inline-block;
+  display: flex;
+  align-items: center;
   font-size: 0.75rem;
   font-family: monospace;
   padding: 3px 6px;
